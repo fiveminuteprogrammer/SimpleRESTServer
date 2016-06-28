@@ -5,6 +5,7 @@ using System.Web;
 using SimpleRESTServer.Models;
 using MySql.Data;
 using System.Collections;
+using System.Configuration;
 
 namespace SimpleRESTServer
 {
@@ -17,7 +18,9 @@ namespace SimpleRESTServer
         public ArrayList getPersons()
         {
             MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = "server=127.0.0.1;uid=developeruser;pwd=developer;database=employeedb";
+
+
+            string myConnectionString = ConfigurationManager.ConnectionStrings["EmployeeDBConnection"].ConnectionString;
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             try
             {
@@ -59,7 +62,7 @@ namespace SimpleRESTServer
         public Person getPerson(long ID)
         {
             MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = "server=127.0.0.1;uid=developeruser;pwd=developer;database=employeedb";
+            string myConnectionString = ConfigurationManager.ConnectionStrings["EmployeeDBConnection"].ConnectionString;
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             try
             {
@@ -103,7 +106,7 @@ namespace SimpleRESTServer
         public bool deletePerson(long ID)
         {
             MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = "server=127.0.0.1;uid=developeruser;pwd=developer;database=employeedb";
+            string myConnectionString = ConfigurationManager.ConnectionStrings["EmployeeDBConnection"].ConnectionString;
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             try
             {
@@ -146,7 +149,7 @@ namespace SimpleRESTServer
         public bool updatePerson(long ID, Person personToSave)
         {
             MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = "server=127.0.0.1;uid=developeruser;pwd=developer;database=employeedb";
+            string myConnectionString = ConfigurationManager.ConnectionStrings["EmployeeDBConnection"].ConnectionString;
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             try
             {
@@ -189,7 +192,7 @@ namespace SimpleRESTServer
         public long savePerson(Person personToSave)
         {
             MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString = "server=127.0.0.1;uid=developeruser;pwd=developer;database=employeedb";
+            string myConnectionString = ConfigurationManager.ConnectionStrings["EmployeeDBConnection"].ConnectionString;
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             try
             {
